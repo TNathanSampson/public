@@ -1,0 +1,693 @@
+# Stats from User Input: 
+Stat_List = {
+#"CON": int(input("Enter Constitution: ")),
+"DEX": int(input("Enter Dexterity: ")),
+#"INT": int(input("Enter Intelligence: ")),
+"SD": int(input("Enter Self Discipline: ")),
+#"STA": int(input("Enter Stature: ")),
+"FIT": int(input("Enter Fitness: ")),
+"STR": int(input("Enter Strength: ")),
+"AGL": int(input("Enter Agility: ")),
+"EDU": int(input("Enter Education: ")),
+"POINTS": int(input("Enter Starting Points: ")),
+}
+
+# Skill Tree Dictionaries: 
+Animal_Nature = {
+    "Animal Handling": ("EDU", "Regular"), 
+    "Animal Husbandry": ("EDU", "Regular"),
+    "Equestrian": ("AGL", "Regular"), 
+    "Farming": ("EDU", "Regular"), 
+    "Herbalist": ("EDU", "Regular"), 
+    "Mimicry (Animal)": ("EDU", "Regular"), 
+    "Nature Lore": ("EDU", "Regular"), 
+    "Veterinary": ("EDU", "Double"), 
+}
+
+Arts_Entertainment = {
+    "Artist": ("EDU", "Regular"), 
+    "Connoisseur": ("EDU", "Regular"),
+    "Current Affairs": ("EDU", "Single"), 
+    "Dancing": ("AGL", "Regular"), 
+    "Escape Artist": ("AGL", "Regular"), 
+    "Graphics Media": ("EDU", "Regular"),
+    "Fortune Teller": ("EDU", "Regular"),
+    "Magician": ("EDU", "Double"),
+    "Mimicry (Human)": ("EDU", "Regular"),
+    "Musician": ("EDU", "Regular"),
+    "Sleight of Hand": ("DEX", "Regular"),
+    "Theatre": ("EDU", "Regular"),
+    "Ventriloquism": ("EDU", "Regular"),
+    "Writer": ("EDU", "Regular"),
+}
+
+Athletic = {
+    "Acrobat ": ("AGL", "Regular"), 
+    "Cycling ": ("FIT", "Single"),
+    "Climbing ": ("AGL", "Regular"), 
+    "Diving": ("AGL", "Regular"), 
+    "Hiking ": ("FIT", "Single"), 
+    "Jumping ": ("AGL", "Regular"),
+    "Body Builder": ("STR", "Regular"),
+    "Running": ("FIT", "Single"),
+    "Scuba": ("EDU", "Regular"),
+    "Skating ": ("AGL", "Regular"),
+    "Skiing ": ("AGL", "Regular"),
+    "Swimming": ("FIT", "Single"),
+}
+
+Business = {
+    "Accounting ": ("EDU", "Regular"),
+    "Administration ": ("EDU", "Regular"),    
+    "Finance ": ("EDU", "Regular"),
+    "Lawyer ": ("EDU", "Double"),
+    "Merchant ": ("EDU", "Regular"),
+}
+
+Combat_Body = {
+    "Bone Break ": ("STR/AGL", "Triple"),
+    "Boxing ": ("STR/AGL", "Double"),
+    "Brawler ":    ("STR", "Single"),
+    "Dragon Fighting ": ("STR/AGL", "Triple"),
+    "Jeet Kun Do ": ("STR/AGL", "Triple"),
+    "Jiu Jitsu ": ("STR/AGL", "Double"),
+    "Judo ": ("STR/AGL", "Double"),
+    "Karate ": ("STR/AGL", "Double"),
+    "Kenpo ": ("STR/AGL", "Double"),
+    "Kick Boxing ": ("STR/AGL", "Regular"),
+    "Kung Fu ": ("STR/AGL", "Triple"),
+    "Muay Thai ": ("STR/AGL", "Double"),
+    "Savate ": ("STR/AGL", "Regular"),
+    "Self Defense ": ("AGL", "Single"),
+    "Sumo Wrestling ": ("STR", "Single"),
+    "Taekwondo ": ("STR/AGL", "Double"),
+    "Tai Chi ": ("AGL", "Regular"),
+    "Tai Chi Chuan ": ("STR/AGL", "Double"),
+    "Wrestling ": ("STR/AGL", "Regular"),
+}
+
+Combat_Misc = {
+    "2 Weapon Combat ": ("DEX", "Double"),
+    "Body Weapon ":    ("SD", "Double"),
+    "Disarm ": ("DEX", "Double"),   
+    "Quick-Draw ": ("DEX", "Double"),   
+    "Innate Attack ": ("EDU", "Double"),
+    "Mounted Combat ": ("AGL", "Double"),
+    "Parry Missile Weapons ": ("AGL", "Double"),
+    "Presence ": ("SD", "Double"),
+    "Selective Targeting ": ("DEX", "Double"),
+    "Zero-G Combat ": ("AGL", "Double"),
+}
+
+Combat_Ranged = {
+    "Artillery ": ("EDU", "Regular"),
+    "Energy Weapon ": ("DEX", "Regular"),
+    "Blowpipe ": ("DEX", "Regular"),
+    "Bola ": ("DEX", "Regular"),
+    "Crossbow ": ("DEX", "Regular"),
+    "Combat Rifleman ": ("DEX",    "Regular"),
+    "Mounted Gunner ": ("EDU", "Regular"),
+    "Pistol ": ("DEX", "Regular"),
+    "Lasso ": ("DEX", "Single"),
+    "Liquid Projector ": ("DEX", "Single"),
+    "Long Bow ": ("DEX", "Regular"),
+    "Net ": ("DEX", "Single"),
+    "Sling ": ("DEX", "Regular"),
+    "Short Bow ": ("DEX", "Regular"),
+    "Thrown Weapon ": ("DEX", "Single"),
+}
+
+Combat_Weapon = {
+    "1-Hand Edge ":    ("STR",    "Single"), 
+    "1-Hand Axe/Mace ":    ("STR",    "Single"), 
+    "2-Hand Edge ":    ("STR",    "Single"), 
+    "2-Handed Axe/Mace ":    ("STR",    "Single"), 
+    "2-Hand Pole ":    ("STR",    "Single"), 
+    "Handaxe ":    ("STR",    "Regular"), 
+    "Longsword ": ("STR",    "Regular"), 
+    "Flail ": ("STR",    "Regular"), 
+    "Garrote ": ("AGL",    "Regular"), 
+    "Greataxe ": ("STR",    "Regular"), 
+    "Greatsword ": ("STR",    "Regular"), 
+    "Jitte/Sai ": ("AGL",    "Regular"), 
+    "Knife ": ("AGL",    "Regular"), 
+    "Lance ": ("STR",    "Regular"), 
+    "Shield ": ("STR",    "Regular"), 
+    "Shortsword ": ("STR/AGL", "Regular"),
+    "Spear ": ("STR/AGL", "Regular"),
+    "Staff ": ("STR/AGL", "Regular"),
+    "Stick ": ("STR/AGL", "Single"),
+    "Flexible ": ("AGL",    "Regular"), 
+    "(Specific Weapon) ": ("STR/AGL", "Double"),
+}
+
+Craft_Trade = {
+    "Appraisal ": ("EDU", "Regular"),
+    "Architect ": ("EDU", "Double"),
+    "Armorcraft ": ("EDU", "Regular"),
+    "Armorsmith ": ("EDU", "Double"),
+    "Butcher ": ("EDU", "Regular"),
+    "Butler ": ("EDU", "Double"),
+    "Carpentry ": ("EDU", "Regular"),
+    "Chef ": ("EDU", "Double"),
+    "Cooking ": ("EDU", "Single"),
+    "Electrician ": ("EDU", "Regular"),
+    "Electronics ": ("EDU", "Regular"),
+    "Engineer ": ("EDU", "Double"),
+    "Firearm ": ("EDU", "Regular"),
+    "Gunsmith ": ("EDU", "Double"),
+    "Housekeeping ": ("EDU", "Single"),
+    "Jeweler ": ("EDU", "Double"),
+    "Leathersmith ": ("EDU", "Double"),
+    "Leatherworking ": ("EDU", "Regular"),
+    "Library ": ("EDU", "Regular"),
+    "Locksmith ": ("EDU", "Double"),
+    "Machinist ": ("EDU", "Regular"),
+    "Maintenance ": ("EDU", "Regular"),
+    "Masonry ": ("EDU", "Regular"),
+    "Mechanic ": ("EDU", "Regular"),
+    "Mining ": ("EDU", "Regular"),
+    "Plumber ": ("EDU", "Regular"),
+    "Sewing ": ("EDU", "Single"),
+    "Tailor ": ("EDU", "Double"),
+    "Teacher ": ("EDU", "Regular"),
+    "Undertaker ": ("EDU", "Regular"),
+    "Weaponcraft ": ("EDU", "Regular"),
+    "Weaponsmith ": ("EDU", "Double"),
+}
+
+Criminal_Streets = {
+    "Carousing ": ("EDU", "Regular"),
+    "Computer Hacking ": ("EDU", "Double"),
+    "Disguise ": ("EDU", "Regular"),
+    "Fast-Talker ": ("EDU", "Regular"), 
+    "Fleece ": ("EDU", "Regular"),
+    "Forced Entry ": ("STR", "Single"),
+    "Forgery ": ("EDU", "Regular"),
+    "Gambling ": ("EDU", "Regular"),
+    "Hide in Shadow ": ("EDU", "Regular"),
+    "Intimidation ": ("SD", "Regular"),
+    "Lockpicking ": ("EDU", "Regular"),
+    "Move Silently ": ("AGL", "Regular"),
+    "Pickpocket ": ("DEX", "Regular"),
+    "Mafia ": ("EDU", "Regular"),
+    "Set/Remove Trap ": ("EDU", "Regular"),
+    "Smuggling ": ("EDU", "Regular"),
+    "Streetwise ": ("EDU", "Single"),
+    "Survival Urban ": ("EDU", "Regular"),
+}
+
+Law_Enforcement = {
+    "Criminology ": ("EDU", "Regular"),
+    "Detect Lies ": ("SD", "Regular"),
+    "Detective ": ("EDU", "Regular"),
+    "Surveillance ": ("EDU","Regular"),
+    "Forensics ": ("EDU","Regular"),
+}
+
+Medical = {
+    "First Aid ": ("EDU", "Single"),
+    "Medic ": ("EDU", "Regular"),
+    "Hypnotism ": ("EDU", "Regular"),
+    "Pharmacy ":("EDU", "Regular"),
+    "Physician ": ("EDU", "Double"),
+    "Poisons ": ("EDU", "Regular"),
+    "Surgeon ": ("EDU", "Double"),
+}
+
+Military = {
+    "Brainwashing ": ("EDU", "Double"),
+    "Camouflage ": ("EDU", "Regular"),
+    "Cryptography ": ("EDU", "Regular"),
+    "Demolition ": ("EDU", "Regular"),
+    "Intelligence Analysis ": ("EDU", "Regular"),
+    "Interrogation ": ("SD", "Regular"),
+    "Leadership ": ("SD", "Regular"),
+    "Parachuting ": ("AGL", "Single"),
+    "Recon ": ("EDU", "Double"),
+    "Tactician ": ("EDU", "Regular"),
+}
+
+Occult_Magic = {
+    "Alchemy ": ("EDU", "Regular"),
+    "Abjuration ": ("EDU", "Single"),
+    "Bard ": ("EDU", "Regular"),
+    "Black Speech ": ("EDU", "Double"),
+    "Cleric ": ("EDU", "Regular"),
+    "Conjuration ": ("EDU", "Regular"),
+    "Cthulhu Magic ": ("EDU", "Double"),
+    "Cthulhu Mythos ": ("EDU", "Regular"),
+    "Divination ": ("EDU", "Single"),
+    "Druid ": ("EDU", "Regular"),
+    "Earth and Sea ": ("EDU", "Double"),
+    "Enchanter ": ("EDU", "Single"),
+    "Evocation ": ("EDU", "Regular"),
+    "Force Magic ": ("EDU", "Double"),
+    "Gate Magic ": ("EDU", "Regular"),
+    "Illusionist ": ("EDU", "Single"),
+    "Necromancy ": ("EDU", "Single"),
+    "Occult Lore ": ("EDU", "Regular"),
+    "Paladin ": ("EDU", "Single"),
+    "Pyrokinesis ": ("EDU", "Double"),
+    "Ranger ": ("EDU", "Single"),
+    "Religious Ritual ": ("EDU", "Single"),
+    "Ritual Magic ": ("EDU", "Single"),
+    "Runic Magic ": ("EDU", "Regular"),
+    "Telekinesis ": ("EDU", "Double"),
+    "Telepathy ": ("EDU", "Double"),
+    "Voodoo ": ("EDU", "Regular"),
+}
+
+Outdoor_Exploration = {
+    "Cartography ": ("EDU",    "Regular"),
+    "Fishing ": ("EDU",    "Single"),
+    "Navigation ": ("EDU", "Regular"),
+    "Prospecting ": ("EDU", "Regular"),
+    "Survival Arctic ": ("EDU", "Regular"),
+    "Survival Desert ": ("EDU", "Regular"),
+    "Survival Wilderness ": ("EDU", "Regular"),
+    "Tracking ": ("EDU", "Regular"),
+    "Weather Sense ": ("EDU", "Regular"),
+}
+
+Science = {
+    "Archaeology ": ("EDU", "Regular"),
+    "Astronomy ": ("EDU", "Regular"),
+    "Bioengineering ": ("EDU", "Double"),
+    "Biology ": ("EDU", "Regular"),
+    "Chemistry ": ("EDU", "Regular"),
+    "Geology ": ("EDU", "Regular"),
+    "Mathematics ": ("EDU", "Regular"),
+    "Metallurgy ": ("EDU", "Regular"),
+    "Meteorology ": ("EDU", "Regular"),
+    "Paleontology ": ("EDU", "Regular"),
+    "Physics ": ("EDU", "Double"),
+    "Physiology ": ("EDU", "Regular"),
+    "Quantum Physics ": ("EDU", "Triple"),
+    "Weird Science ": ("EDU", "Double"),
+}
+
+Social_Humanities = {
+    "Anthropology ": ("EDU", "Regular"),
+    "Diplomacy ": ("EDU", "Regular"),
+    "Geography ": ("EDU", "Regular"),
+    "History ": ("EDU", "Regular"),
+    "Language ": ("EDU", "Regular"),
+    "Linguistics ": ("EDU", "Double"),
+    "Lip Reading ": ("EDU", "Regular"),
+    "Literature ": ("EDU", "Regular"),
+    "Philosophy ": ("EDU", "Regular"),
+    "Politics ": ("EDU", "Regular"),
+    "Propaganda ": ("EDU", "Regular"),
+    "Psychology ": ("EDU", "Double"),
+    "Public Speaking ": ("EDU", "Regular"),
+    "Sex Appeal ": ("SD", "Regular"),
+    "Sociology ": ("EDU", "Regular"),
+    "Theology ": ("EDU", "Regular"),
+    "Xenology  ": ("EDU", "Regular"),
+}
+
+Technical = {
+    "Battlesuit ": ("AGL", "Regular"),
+    "Computer ": ("EDU", "Regular"),
+    "Computer Programming ": ("EDU", "Double"),
+    "Diving Suit ": ("AGL", "Regular"),
+    "Hazardous Materials ": ("EDU", "Regular"),
+    "NBC Suit ": ("AGL", "Regular"),
+    "Typing ": ("EDU", "Single"),
+    "Vac Suit ": ("AGL", "Regular"),
+    "Speed-Reading ": ("EDU", "Regular"),
+}
+
+Vehicle = {
+    "Airship ": ("EDU", "Regular"),
+    "Boating ": ("DEX", "Regular"),
+    "Pilot ": ("DEX", "Regular"),
+    "Seafaring ": ("EDU", "Double"),
+    "Space Vessel ": ("EDU", "Double"),
+    "Submarine ": ("EDU", "Double"),
+    "Wheeled Vehicle ": ("DEX", "Regular"),
+}
+
+# Stat Calculators: 
+def POINTS_Calculator(Skill_Tree): 
+    delete_list = []
+    for key, value in Skill_Tree.items():
+        if Stat_List["POINTS"] < 500:
+            if value[1] == "Double" or value[1] == "Triple":
+                delete_list.append(key)
+        elif Stat_List["POINTS"] < 600:
+            if value[1] == "Triple":
+                delete_list.append(key)
+    for skill in delete_list:
+        del Skill_Tree[skill]
+    return Skill_Tree
+
+def CON_Calculator(Skill_Tree):
+    delete_list = []          
+    for key, value in Skill_Tree.items():
+        if Stat_List["CON"] < 12:
+            if value[0] == "CON":
+                delete_list.append(key)
+    for skill in delete_list:
+        del Skill_Tree[skill]
+    return Skill_Tree   
+
+def DEX_Calculator(Skill_Tree):
+    delete_list = []          
+    for key, value in Skill_Tree.items():
+        if Stat_List["DEX"] < 12:
+            if value[0] == "DEX":
+                delete_list.append(key)
+    for skill in delete_list:
+        del Skill_Tree[skill]
+    return Skill_Tree   
+
+def INT_Calculator(Skill_Tree):
+    delete_list = []          
+    for key, value in Skill_Tree.items():
+        if Stat_List["INT"] < 12:
+            if value[0] == "INT":
+                delete_list.append(key)
+    for skill in delete_list:
+        del Skill_Tree[skill]
+    return Skill_Tree   
+    
+def SD_Calculator(Skill_Tree):
+    delete_list = []          
+    for key, value in Skill_Tree.items():
+        if Stat_List["SD"] < 12:
+            if value[0] == "SD":
+                delete_list.append(key)
+    for skill in delete_list:
+        del Skill_Tree[skill]
+    return Skill_Tree
+
+def STA_Calculator(Skill_Tree):
+    delete_list = []          
+    for key, value in Skill_Tree.items():
+        if Stat_List["STA"] < 12:
+            if value[0] == "STA":
+                delete_list.append(key)
+    for skill in delete_list:
+        del Skill_Tree[skill]
+    return Skill_Tree   
+
+def FIT_Calculator(Skill_Tree):
+    delete_list = []          
+    for key, value in Skill_Tree.items():
+        if Stat_List["FIT"] < 12:
+            if value[0] == "FIT":
+                delete_list.append(key)
+    for skill in delete_list:
+        del Skill_Tree[skill]
+    return Skill_Tree  
+    
+def STR_Calculator(Skill_Tree):
+    delete_list = []          
+    for key, value in Skill_Tree.items():
+        if Stat_List["STR"] < 12 :
+            if value[0] == "STR":
+                delete_list.append(key)
+    for skill in delete_list:
+        del Skill_Tree[skill]
+    return Skill_Tree  
+
+def AGL_Calculator(Skill_Tree):
+    delete_list = []          
+    for key, value in Skill_Tree.items():
+        if Stat_List["AGL"] < 12:
+            if value[0] == "AGL":
+                delete_list.append(key)
+    for skill in delete_list:
+        del Skill_Tree[skill]
+    return Skill_Tree  
+    
+def STRAGL_Calculator(Skill_Tree):
+    delete_list = []          
+    for key, value in Skill_Tree.items():
+        if Stat_List["AGL"] < 12 and Stat_List["STR"] < 12:
+            if value[0] == "STR/AGL":
+                delete_list.append(key)
+    for skill in delete_list:
+        del Skill_Tree[skill]
+    return Skill_Tree  
+
+def EDU_Calculator(Skill_Tree):
+    delete_list = []  
+    for key, value in Skill_Tree.items():
+        if Stat_List["EDU"] < 12:
+            if value[0] == "EDU":
+                delete_list.append(key)
+    for skill in delete_list:
+        del Skill_Tree[skill]
+    return Skill_Tree
+
+# Skill Calculator Functions:
+def Animal_Nature_Calculator():
+    POINTS_Calculator(Animal_Nature) 
+    EDU_Calculator(Animal_Nature) 
+    AGL_Calculator(Animal_Nature) 
+    print("\n  <<:Animal/Nature Skills:>> \n")
+    for k, v in sorted(Animal_Nature.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Animal_Nature) == 0:
+        print("-No Animal/Nature skills suggested-")
+        
+def Arts_Entertainment_Calculator():
+    POINTS_Calculator(Arts_Entertainment) 
+    DEX_Calculator(Arts_Entertainment) 
+    EDU_Calculator(Arts_Entertainment) 
+    AGL_Calculator(Arts_Entertainment) 
+    print("\n  <<:Arts/Entertainment Skills:>> \n")
+    for k, v in sorted(Arts_Entertainment.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Arts_Entertainment) == 0:
+        print("-No Arts/Entertainment skills suggested-")
+        
+def Athletic_Calculator():
+    POINTS_Calculator(Athletic) 
+    FIT_Calculator(Athletic) 
+    AGL_Calculator(Athletic)
+    STR_Calculator(Athletic) 
+    EDU_Calculator(Athletic) 
+    print("\n  <<:Athletic Skills:>> \n")
+    for k, v in sorted(Athletic.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Athletic) == 0:
+        print("-No Athletic skills suggested-")
+
+def Business_Calculator():
+    POINTS_Calculator(Business) 
+    EDU_Calculator(Business) 
+    print("\n  <<:Business Skills:>> \n")
+    for k, v in sorted(Business.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Business) == 0:
+        print("-No Business skills suggested-")
+        
+def Combat_Body_Calculator():
+    POINTS_Calculator(Combat_Body) 
+    AGL_Calculator(Combat_Body)
+    STR_Calculator(Combat_Body) 
+    STRAGL_Calculator(Combat_Body) 
+    print("\n  <<:Body Combat Skills:>> \n")
+    for k, v in sorted(Combat_Body.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Combat_Body) == 0:
+        print("-No Body Combat skills suggested-")
+        
+def Combat_Misc_Calculator():
+    POINTS_Calculator(Combat_Misc) 
+    DEX_Calculator(Combat_Misc)
+    SD_Calculator(Combat_Misc) 
+    AGL_Calculator(Combat_Misc)
+    EDU_Calculator(Combat_Misc)
+    print("\n  <<:Miscellaneous Combat Skills:>> \n")
+    for k, v in sorted(Combat_Misc.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Combat_Misc) == 0:
+        print("-No Miscellaneous Combat skills suggested-")
+        
+def Combat_Ranged_Calculator():
+    POINTS_Calculator(Combat_Ranged) 
+    DEX_Calculator(Combat_Ranged) 
+    EDU_Calculator(Combat_Ranged) 
+    print("\n  <<:Ranged Combat Skills:>> \n")
+    for k, v in sorted(Combat_Ranged.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Combat_Ranged) == 0:
+        print("-No Ranged Combat skills suggested-")
+
+def Combat_Weapon_Calculator():
+    POINTS_Calculator(Combat_Weapon) 
+    AGL_Calculator(Combat_Weapon)
+    STR_Calculator(Combat_Weapon) 
+    STRAGL_Calculator(Combat_Weapon) 
+    print("\n  <<:Weapon Combat Skills:>> \n")
+    for k, v in sorted(Combat_Weapon.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Combat_Weapon) == 0:
+        print("-No Weapon Combat skills suggested-")
+        
+def Craft_Trade_Calculator():
+    POINTS_Calculator(Craft_Trade) 
+    EDU_Calculator(Craft_Trade) 
+    print("\n  <<:Craft/Trade Skills:>> \n")
+    for k, v in sorted(Craft_Trade.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Craft_Trade) == 0:
+        print("-No Craft/Trade skills suggested-")
+
+def Criminal_Streets_Calculator():
+    POINTS_Calculator(Criminal_Streets) 
+    DEX_Calculator(Criminal_Streets)
+    SD_Calculator(Criminal_Streets) 
+    STR_Calculator(Criminal_Streets)
+    AGL_Calculator(Criminal_Streets)
+    EDU_Calculator(Criminal_Streets)
+    print("\n  <<:Criminal/Street Skills:>> \n")
+    for k, v in sorted(Criminal_Streets.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Criminal_Streets) == 0:
+        print("-No Criminal/Street skills suggested-")
+
+def Law_Enforcement_Calculator():
+    SD_Calculator(Law_Enforcement) 
+    EDU_Calculator(Law_Enforcement) 
+    print("\n  <<:Law Enforcement Skills:>> \n")
+    for k, v in sorted(Law_Enforcement.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Law_Enforcement) == 0:
+        print("-No Law Enforcement skills suggested-")
+        
+def Medical_Calculator():
+    POINTS_Calculator(Medical) 
+    EDU_Calculator(Medical) 
+    print("\n  <<:Medical Skills:>> \n")
+    for k, v in sorted(Medical.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Medical) == 0:
+        print("-No Medical skills suggested-")
+
+def Military_Calculator():
+    POINTS_Calculator(Military) 
+    SD_Calculator(Military) 
+    EDU_Calculator(Military) 
+    print("\n  <<:Military Skills:>> \n")
+    for k, v in sorted(Military.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Military) == 0:
+        print("-No Military skills suggested-")
+
+def Occult_Magic_Calculator():
+    POINTS_Calculator(Occult_Magic) 
+    EDU_Calculator(Occult_Magic) 
+    print("\n  <<:Occult/Magic Skills:>> \n")
+    for k, v in sorted(Occult_Magic.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Occult_Magic) == 0:
+        print("-No Occult/Magic skills suggested-")
+
+def Outdoor_Exploration_Calculator():
+    POINTS_Calculator(Outdoor_Exploration) 
+    EDU_Calculator(Outdoor_Exploration) 
+    print("\n  <<:Outdoor/Exploration Skills:>> \n")
+    for k, v in sorted(Outdoor_Exploration.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Outdoor_Exploration) == 0:
+        print("-No Outdoor/Exploration skills suggested-")
+
+def Science_Calculator():
+    POINTS_Calculator(Science) 
+    EDU_Calculator(Science) 
+    print("\n  <<:Science Skills:>> \n")
+    for k, v in sorted(Science.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Science) == 0:
+        print("-No Science skills suggested-")
+
+def Social_Humanities_Calculator():
+    POINTS_Calculator(Social_Humanities) 
+    SD_Calculator(Social_Humanities) 
+    EDU_Calculator(Social_Humanities) 
+    print("\n  <<:Social/Humanities Skills:>> \n")
+    for k, v in sorted(Social_Humanities.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Social_Humanities) == 0:
+        print("-No Social/Humanities skills suggested-")
+
+def Technical_Calculator():
+    POINTS_Calculator(Technical) 
+    EDU_Calculator(Technical) 
+    AGL_Calculator(Technical) 
+    print("\n  <<:Technical Skills:>> \n")
+    for k, v in sorted(Technical.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Technical) == 0:
+        print("-No Technical skills suggested-")
+
+def Vehicle_Calculator():
+    POINTS_Calculator(Vehicle) 
+    DEX_Calculator(Vehicle) 
+    EDU_Calculator(Vehicle) 
+    print("\n  <<:Vehicle Skills:>> \n")
+    for k, v in sorted(Vehicle.items()):
+        print(k + ": " + v[1] + " Cost")
+    if len(Vehicle) == 0:
+        print("-No Vehicle skills suggested-")    
+
+# Call Skill Calculators: 
+def Skill_Caller():
+    Animal_Nature_Calculator()
+    Arts_Entertainment_Calculator()
+    Athletic_Calculator()
+    Business_Calculator()
+    Combat_Body_Calculator()
+    Combat_Misc_Calculator()
+    Combat_Ranged_Calculator()
+    Combat_Weapon_Calculator()
+    Craft_Trade_Calculator()
+    Criminal_Streets_Calculator()
+    Law_Enforcement_Calculator()
+    Medical_Calculator()
+    Military_Calculator
+    Occult_Magic_Calculator()
+    Outdoor_Exploration_Calculator()
+    Science_Calculator()
+    Social_Humanities_Calculator()
+    Technical_Calculator()
+    Vehicle_Calculator()
+    print()
+
+#Skill_Caller()
+# Top Stats: 
+def Best_Stat():
+    Top_Stat = sorted(Stat_List.values())[-2] 
+    print("Your best Stats: ")
+    for key, value in Stat_List.items(): 
+        if value == Top_Stat:
+            print(str(key) + ": " + str(Top_Stat))
+    if Top_Stat < 12:
+        Stat_Sum = 12 - Top_Stat
+        for key, value in Stat_List.items():
+            if value == Top_Stat:
+                Stat_List[key] = value + Stat_Sum
+        return Stat_List
+                
+Best_Stat()
+Skill_Caller()
+# Test Code:
+'''
+Sorted_Stats = sorted(Stat_List, reverse=True, key=Stat_List.get)
+
+if Sorted_Stats.index("EDU") < Sorted_Stats.index("AGL"):
+    print("Education is your best Stat.")
+else:
+    print("Agility is your best Stat")
+
+#sampling = random.choices(sorted(Animal_Nature.items(), k=3)
+'''
+
+
+
